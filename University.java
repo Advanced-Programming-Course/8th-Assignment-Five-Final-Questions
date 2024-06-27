@@ -47,8 +47,6 @@ public class University{
                 System.out.println("Student Found");
                 System.out.println("name :" + i.getName()+ "\nId : "+ i.getId()+"\nmoadel :" + i.getMoadel());
                found=true;
-            }else{
-                found=false;
             }
 
         }
