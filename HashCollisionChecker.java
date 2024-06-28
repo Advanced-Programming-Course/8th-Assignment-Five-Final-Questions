@@ -1,6 +1,6 @@
 import java.util.*;
 
-class HashCollisionChecker {
+public class HashCollisionChecker {
     public static <T> int countOfUniqueHashCodes(HashSet<T> set) {
         HashSet<Integer> hashCodes = new HashSet<>();
         for (T item : set) {
