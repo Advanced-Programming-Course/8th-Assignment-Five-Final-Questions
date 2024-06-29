@@ -1,4 +1,3 @@
- 
 import java.util.ArrayList;
 
 class ToDos {
@@ -25,11 +24,19 @@ class ToDos {
     poirotsToDos.add("reveal the truth of the crime");
     
     // Print the size of each ArrayList below:
-
     
+    int s = sherlocksToDos.size();
+    int p = poirotsToDos.size();
+    System.out.println("sherlock: " + s);
+    System.out.println("poirots: " + p);
       
     // Print the name of the detective with the larger to-do list:
-    
+    if (p > s) {
+        System.out.println("poirots");
+    } else if (p < s) {
+        System.out.println("sherlock");
+    } else {
+        System.out.println("equal");
+    }
   }
-  
 }
