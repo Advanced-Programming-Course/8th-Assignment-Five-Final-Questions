@@ -1,8 +1,5 @@
- 
 import java.util.ArrayList;
-
 class ToDos {
-    
   public static void main(String[] args) {
     
     // Sherlock
@@ -26,10 +23,20 @@ class ToDos {
     
     // Print the size of each ArrayList below:
 
-    
+    System.out.println("Sherlock: " + sherlocksToDos.size());
+    System.out.println("Poirot: " + poirotsToDos.size());
       
     // Print the name of the detective with the larger to-do list:
-    
+
+    String busyDetective;
+    if (sherlocksToDos.size() > poirotsToDos.size()){
+      busyDetective = "Sherlock";
+    }
+    else {
+      busyDetective = "Sherlock";
+    }
+    System.out.println(busyDetective);
+
   }
   
 }
