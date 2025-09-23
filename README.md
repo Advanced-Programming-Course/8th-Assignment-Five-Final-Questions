@@ -1,75 +1,88 @@
-### کارآگاه
-#### کارآگاهان زیاد کار می کنند تا یک پرونده را حل کنند. اما کدام یک کار بیشتری دارد؟
-#### سایز to-do ArrayList مربوط به هر کارآگاه را چاپ کنید. 
+## 1. Detective
 
-#### sherlocksToDos for Sherlock Holmes
-#### poirotsToDos for Hercules Poirot
+Detectives work hard to solve cases, but who has more work?
 
-#### کدام یک کار بیشتری دارد؟ نام کارآگاهی که لیست کارهایش طولانی تر است را چاپ کنید. شرلوک است یا پوآرو؟
+* Create two `ArrayList`s:
 
------------
-### برنامه ی نرگس
+  * `sherlocksToDos` for Sherlock Holmes
+  * `poirotsToDos` for Hercules Poirot
+* Print the size of each to-do list.
+* Compare the lists and print the name of the detective with more tasks.
 
-#### نرگس علاقه‌ی زیادی به بهینه بودن برنامه‌ها دارد. او می‌داند که استفاده از hash برای نگه‌داری داده‌ها در برخی مواقع نه تنها کمکی به افزایش پرفورمنس نمی‌کند، بلکه پرفورمنس برنامه را کاهش می‌دهد. یلدا که حرف نرگس را قبول ندارد، از او درخواست کدی کرده است تا میزان hash collision ها را ببیند. نرگس نیز این کار را به شما محول کرده است.
+---
 
-#### در این سؤال، یک HashSet یا HashMap به شما داده می‌شود. شما باید تعداد یکتای hash code های مقادیر موجود در HashSet یا کلیدهای موجود در HashMap را محاسبه کرده و برگردانید.
+## 2. Narges’ Program – Hash Collision Checker
 
-#### کلاس HashCollisionChecker
-#### این کلاس شامل دو متد زیر است که باید آن‌ها را پیاده‌سازی کنید:
+Narges believes that using hashes does not always improve performance. She asks you to check the number of **hash collisions**.
 
-#### - محاسبه‌ی تعداد یکتای hash code های موجود در یک HashSet
- ``` public static <T> int countOfUniqueHashCodes(HashSet<T> set) ``` 
-#### این متد را طوری پیاده‌سازی کنید که با دریافت یک HashSet، تعداد یکتای hash code های مقادیر موجود در آن را برگرداند.
+### Class: `HashCollisionChecker`
 
-#### - محاسبه‌ی تعداد یکتای hash code های موجود در یک HashSet
-``` public static <K, V> int countOfUniqueHashCodes(HashMap<K, V> map) ``` 
+Implement the following methods:
 
-### این متد را طوری پیاده‌سازی کنید که با دریافت یک HashMap، تعداد یکتای hash code های کلیدهای موجود در آن را برگرداند.
+* Count unique hash codes in a `HashSet`:
 
-#### مثال:
-#### با اجرای متد main موجود در کلاس HashCollisionChecker:
+  ```java
+  public static <T> int countOfUniqueHashCodes(HashSet<T> set)
+  ```
+
+* Count unique hash codes of keys in a `HashMap`:
+
+  ```java
+  public static <K, V> int countOfUniqueHashCodes(HashMap<K, V> map)
+  ```
+
+### Example:
+
+```java
+HashSet<String> set = new HashSet<>();
+set.add("c#c#c#c#c#c#bBc#c#c#c#bBc#");
+set.add("abcd");
+set.add("c#c#c#c#c#c#bBc#c#c#c#c#aa");
+set.add("1234");
+set.add("c#c#c#c#c#c#bBc#c#c#c#c#bB");
+System.out.println(countOfUniqueHashCodes(set)); // 3
+
+HashMap<String, Integer> map = new HashMap<>();
+map.put("c#c#c#c#c#c#c#aaaaaaaabBbB", 14);
+map.put("c#c#c#c#c#c#c#aaaaaaaac#c#", 12);
+map.put("c#c#c#c#c#c#c#aaaaaaaac#cc", 16);
+System.out.println(countOfUniqueHashCodes(map)); // 2
 ```
-public static void main(String[] args) {
-    HashSet<String> set = new HashSet<>();
-    set.add("c#c#c#c#c#c#bBc#c#c#c#bBc#");
-    set.add("abcd");
-    set.add("c#c#c#c#c#c#bBc#c#c#c#c#aa");
-    set.add("1234");
-    set.add("c#c#c#c#c#c#bBc#c#c#c#c#bB");
-    System.out.println(countOfUniqueHashCodes(set)); // 3
 
-    HashMap<String, Integer> map = new HashMap<>();
-    map.put("c#c#c#c#c#c#c#aaaaaaaabBbB", 14);
-    map.put("c#c#c#c#c#c#c#aaaaaaaac#c#", 12);
-    map.put("c#c#c#c#c#c#c#aaaaaaaac#cc", 16);
-    System.out.println(countOfUniqueHashCodes(map)); // 2
-}
+**Expected Output:**
 
-```
-
-#### خروجی باید به‌صورت زیر باشد:
 ```
 3
 2
 ```
 
+---
 
-#### برای دریافت hash code آبجکت‌ها، می‌توانید از متد hashCode استفاده کنید.
+## 3. University
 
---------------------
+Write a program that:
 
-### دانشگاه
+* Receives details of several students (name, student ID, GPA) from the user.
+* Stores them in a `TreeSet`.
+* Allows searching for a student by student ID and prints their details.
 
-#### برنامه ای بنویسید که مشخصات چندین دانشجو (نام، شماره دانشجویی، معدل) را از کاربر دریافت کند و آنها را در یک TreeSet ذخیره کند. برنامه همچنین باید امکان جستجوی دانشجو بر اساس شماره دانشجویی و چاپ مشخصات وی را فراهم کند.
+---
 
------------------
+## 4. Shuffle!
 
-### شافل!
-#### برنامه ای بنویسید که اعضای یک linkedlist را shuffle میکند.
+Write a program that shuffles the elements of a `LinkedList`.
 
-----------------
+---
 
-### صف ماشینها
-#### یک صف از ماشین ها را ایجاد کرده و سپس ماشین ها را به صف اضافه می کنیم. 
-#### بعد از اینکه محتویات صف را چاپ می کنیم، ماشین ها را به ترتیب از صف خارج می کنیم. در انتها، چک می کنیم که آیا صف خالی است یا نه.
-#### هدف این تمرین استفاده از صف و همچنین چگونگی استفاده عملیات های اصلی صف مانند enqueue و dequeue است.
+## 5. Car Queue
+
+Write a program that simulates a **queue of cars**:
+
+* Create a queue of cars and add them (enqueue).
+* Print the queue contents.
+* Remove cars one by one (dequeue).
+* At the end, check if the queue is empty.
+
+This exercise demonstrates how to use a **queue** and its basic operations.
+
+---
