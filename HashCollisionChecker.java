@@ -2,13 +2,29 @@ import java.util.*;
 
 public class HashCollisionChecker {
     public static <T> int countOfUniqueHashCodes(HashSet<T> set) {
-        // TODO: Implement
-        return 0;
+        HashSet<Integer> h_c = new HashSet<>();
+
+        for (T element : set) {
+            int hashCode = element.hashCode();
+            if (!h_c.contains(hashCode))
+                h_c.add(hashCode);
+
+        }
+
+        return h_c.size();
     }
 
     public static <K, V> int countOfUniqueHashCodes(HashMap<K, V> map) {
-        // TODO: Implement
-        return 0;
+        HashSet<Integer> h_c = new HashSet<>();
+
+        for (K key : map.keySet()) {
+            int hashCode = key.hashCode();
+
+            if (!h_c.contains(hashCode))
+                h_c.add(hashCode);
+
+        }
+        return h_c.size();
     }
 
     public static void main(String[] args) {
