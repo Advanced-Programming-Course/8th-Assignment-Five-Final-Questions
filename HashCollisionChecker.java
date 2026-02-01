@@ -3,12 +3,23 @@ import java.util.*;
 public class HashCollisionChecker {
     public static <T> int countOfUniqueHashCodes(HashSet<T> set) {
         // TODO: Implement
-        return 0;
-    }
+        Set<Integer> hashcode = new HashSet<Integer>();
+        for(T  i : set){
+            hashcode.add(i.hashCode());
+
+        }
+        return hashcode.size();
+
+}
 
     public static <K, V> int countOfUniqueHashCodes(HashMap<K, V> map) {
         // TODO: Implement
-        return 0;
+        HashSet<Integer> hashcode = new HashSet<>();
+        for(K i : map.keySet()){
+            hashcode.add(i.hashCode());
+
+        }
+        return hashcode.size();
     }
 
     public static void main(String[] args) {
