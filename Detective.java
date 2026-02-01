@@ -25,11 +25,18 @@ class ToDos {
     poirotsToDos.add("reveal the truth of the crime");
     
     // Print the size of each ArrayList below:
-
+    System.out.println("Sherlock's to-do list size: " + sherlocksToDos.size());
+    System.out.println("Poirot's to-do list size: " + poirotsToDos.size());
     
       
     // Print the name of the detective with the larger to-do list:
-    
+    if (sherlocksToDos.size() > poirotsToDos.size()) {
+      System.out.println("Sherlock Holmes has more tasks.");
+  } else if (sherlocksToDos.size() < poirotsToDos.size()) {
+      System.out.println("Hercules Poirot has more tasks.");
+  } else {
+      System.out.println("Both detectives have the same number of tasks.");
   }
-  
+  }
+  // Poirot kar bishtari darad.
 }
